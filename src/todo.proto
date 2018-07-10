@@ -17,7 +17,7 @@ message Todos {
 
 message Todo {
   int32 id = 1;
-  string value = 2;
+  string name = 2;
   bool done = 3;
 }
 

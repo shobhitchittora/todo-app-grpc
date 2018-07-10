@@ -14,14 +14,14 @@ class TodoAppHandler {
 }
 const PATH = '0.0.0.0:8080';
 
-const createServer = function (path, handler) {
+const createServer = function (bindPath, handler) {
   loader.load('todo.proto', { includeDirs: ['./src'] })
     .then((packageDefinition) => {
       const package = grpc.loadPackageDefinition(packageDefinition);
       const service = package.todo_app_package.TodoApp.service;
       const server = new grpc.Server();
       server.addService(service, handler);
-      server.bind(path, grpc.ServerCredentials.createInsecure());
+      server.bind(bindPath, grpc.ServerCredentials.createInsecure());
       server.start();
       console.log('Server running on 8080');
     });
