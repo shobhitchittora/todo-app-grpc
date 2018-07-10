@@ -1,0 +1,24 @@
+{
+  "name": "todo-app-grpc",
+  "version": "1.0.0",
+  "description": "A sample client and server to demonstrate use of gRPC with NodeJS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shobhitchittora/todo-app-grpc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shobhitchittora/todo-app-grpc/issues"
+  },
+  "homepage": "https://github.com/shobhitchittora/todo-app-grpc#readme",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.1.0",
+    "grpc": "^1.13.0"
+  }
+}
