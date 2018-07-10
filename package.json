@@ -4,7 +4,8 @@
   "description": "A sample client and server to demonstrate use of gRPC with NodeJS.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:server": "node src/server.js"
   },
   "repository": {
     "type": "git",
