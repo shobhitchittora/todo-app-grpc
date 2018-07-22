@@ -14,7 +14,7 @@ loader.load('todo.proto', { includeDirs: ['./src'] })
         return console.log(err);
       }
       console.log('todos: ');
-      return console.log(res.todos);
+      return console.log(res);
     });
 
     client.getTodo({ id: 1 }, function (err, res) {
@@ -30,4 +30,18 @@ loader.load('todo.proto', { includeDirs: ['./src'] })
       }
       return console.log(res);
     });
+
+    const call = client.getAllFromStream();
+
+    call.on('data', function (todo) {
+      console.log(todo);
+    });
+
+    call.on('end', function () {
+      console.log('Stream ends');
+    });
+    call.on('error', function (e) {
+      console.log('Stream errored');
+    });
+
   });

@@ -1,15 +1,20 @@
 const grpc = require('grpc');
 const loader = require('@grpc/proto-loader');
-const todos = require('./todos_db.json');
+const { todos } = require('./todos_db.json');
 
 class TodoAppHandler {
   getAll(_, callback) {
-    return callback(null, todos);
+    return callback(null, { todos });
   }
 
   getTodo(call, callback) {
-    const result = todos.todos.filter(({ id }) => id === call.request.id);
+    const result = todos.filter(({ id }) => id === call.request.id);
     return callback(null, result[0]);
+  }
+
+  getAllFromStream(call) {
+    todos.forEach((todo) => call.write(todo));
+    call.end();
   }
 }
 const PATH = '0.0.0.0:8080';
